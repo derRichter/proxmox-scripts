@@ -211,8 +211,6 @@ step_start "Yarn"
   step_end "Yarn ${CLR_CYB}v$YARN_VERSION${CLR} ${CLR_GN}Installed"
 
 step_start "Nginx Proxy Manager" "Downloading" "Downloaded"
-  # 1. Sicherstellen, dass /app leer ist
-  rm -rf /app/* 
   NPM_VERSION=$(os_fetch -O- https://api.github.com/repos/NginxProxyManager/nginx-proxy-manager/releases/latest | grep "tag_name" | awk '{print substr($2, 3, length($2)-4) }')
   os_fetch -O- https://codeload.github.com/NginxProxyManager/nginx-proxy-manager/tar.gz/v$NPM_VERSION | tar -xz
   ./nginx-proxy-manager-$NPM_VERSION
