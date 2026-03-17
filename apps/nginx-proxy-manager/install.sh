@@ -273,7 +273,8 @@ step_start "Enviroment" "Setting up" "Setup"
   # Copy app files
   mkdir -p /app/global /app/frontend/images
   cp -r backend/* /app
-  cp -r global/* /app/global
+  #cp -r global/* /app/global
+  mkdir -p /app/global && cp -r global/* /app/global || true
 
 step_start "Frontend" "Building" "Built"
   cd ./frontend
