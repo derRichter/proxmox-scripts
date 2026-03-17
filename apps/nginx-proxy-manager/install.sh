@@ -281,7 +281,7 @@ step_start "Frontend" "Building" "Built"
   export NODE_ENV=development
   yarn cache clean --silent --force >$__OUTPUT
   yarn install --silent --network-timeout=30000 >$__OUTPUT
-  yarn build >$__OUTPUT
+  NODE_OPTIONS="--max-old-space-size=2048" yarn build >$__OUTPUT
   cp -r dist/* /app/frontend
   cp -r app-images/* /app/frontend/images
 
